@@ -74,7 +74,10 @@ fun whichRookThreatens(kingX: Int, kingY: Int,
  */
 fun rookOrBishopThreatens(kingX: Int, kingY: Int,
                           rookX: Int, rookY: Int,
-                          bishopX: Int, bishopY: Int): Int = TODO()
+                          bishopX: Int, bishopY: Int): Int =
+        if ((kingX != rookX && kingX != rookY) && (kingX != bishopX && kingY != bishopY)) 0 else
+            if ((kingX == rookX || kingY == rookY) && (kingX != bishopX && kingY != bishopY)) 1 else
+                if ((kingX == bishopX || kingY == bishopY) && (kingX != rookX && kingY != rookY)) 2 else 3
 
 /**
  * Простая
