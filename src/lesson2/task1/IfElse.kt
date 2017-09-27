@@ -2,7 +2,6 @@
 package lesson2.task1
 
 import lesson1.task1.discriminant
-import lesson4.task1.abs
 
 /**
  * Пример
@@ -75,7 +74,13 @@ fun whichRookThreatens(kingX: Int, kingY: Int,
  */
 fun rookOrBishopThreatens(kingX: Int, kingY: Int,
                           rookX: Int, rookY: Int,
-                          bishopX: Int, bishopY: Int): Int = TODO()
+                          bishopX: Int, bishopY: Int): Int {
+    val DeltaX: Int = Math.abs (bishopX - kingX)
+    val DeltaY: Int = Math.abs (bishopY - kingY)
+if (kingX != rookX && kingY != rookY && DeltaX != DeltaY) return 0 else
+    if ((kingX == rookX || kingY == rookY) && DeltaX != DeltaY) return 1 else
+        if (DeltaX == DeltaY && kingX != rookX && kingY != rookY) return 2 else return 3
+}
 
 
 
