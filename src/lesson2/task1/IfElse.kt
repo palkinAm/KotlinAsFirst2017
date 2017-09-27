@@ -79,7 +79,7 @@ fun rookOrBishopThreatens(kingX: Int, kingY: Int,
     val DeltaY: Int = Math.abs (bishopY - kingY)
 if (kingX != rookX && kingY != rookY && DeltaX != DeltaY) return 0 else
     if ((kingX == rookX || kingY == rookY) && DeltaX != DeltaY) return 1 else
-        if (DeltaX == DeltaY && kingX != rokX && kingY != rookY) return 2 else return 3
+        if (DeltaX == DeltaY && kingX != rookX && kingY != rookY) return 2 else return 3
 }
 
 
