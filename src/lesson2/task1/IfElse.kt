@@ -84,6 +84,8 @@ if (kingX != rookX && kingY != rookY && DeltaX != DeltaY) return 0 else
 
 
 
+
+
 /**
  * Простая
  *
@@ -103,3 +105,8 @@ fun triangleKind(a: Double, b: Double, c: Double): Int = TODO()
  * Если пересечения нет, вернуть -1.
  */
 fun segmentLength(a: Int, b: Int, c: Int, d: Int): Int = TODO()
+
+
+
+
+
