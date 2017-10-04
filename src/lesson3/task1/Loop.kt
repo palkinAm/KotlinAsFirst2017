@@ -90,12 +90,12 @@ fun fib(n: Int): Int =
  * минимальное число k, которое делится и на m и на n без остатка
  */
 fun lcm(m: Int, n: Int): Int  {
-    val i = 1
-    for (k in 1..(m * n)) {
+    var k = 1
+    for (i in 1..(m * n)) {
         if ((k % n) == 0 && (k % m) == 0) break
-            i == i+1
+            k == k+1
     }
-    return i
+    return k
 }
 
 
@@ -105,14 +105,35 @@ fun lcm(m: Int, n: Int): Int  {
  *
  * Для заданного числа n > 1 найти минимальный делитель, превышающий 1
  */
-fun minDivisor(n: Int): Int = TODO()
+fun minDivisor(n: Int): Int {
+    var k = 2
+    for (i in 2..n) {
+        if (n % k == 0) break
+        k = k + 1
+
+    }
+    return k
+}
 
 /**
  * Простая
  *
  * Для заданного числа n > 1 найти максимальный делитель, меньший n
  */
-fun maxDivisor(n: Int): Int = TODO()
+fun maxDivisor(n: Int): Int {
+    var k = n
+    for (i in 2 downTo n) {
+        if (n % k == 0 && k < n) break
+        k = k - 1
+
+    }
+    return k
+}
+
+
+
+
+
 
 /**
  * Простая
