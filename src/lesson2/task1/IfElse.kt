@@ -57,11 +57,19 @@ fun timeForHalfWay(t1: Double, v1: Double,
  */
 fun whichRookThreatens(kingX: Int, kingY: Int,
                        rookX1: Int, rookY1: Int,
-                       rookX2: Int, rookY2: Int): Int =
-        if ((kingX != rookX1) && (kingY != rookY1) && (kingX != rookX2) && (kingY != rookY2)) 0 else
-            if ((kingX == rookX1 || kingY == rookY1) && (kingX != rookX2 && kingY != rookY2)) 1 else
-                if ((kingX == rookX2 || kingY == rookY2) && (kingX != rookX1 && kingY != rookY1)) 2 else 3
+                       rookX2: Int, rookY2: Int): Int {
+    val A: Boolean = ((kingX != rookX1) && (kingY != rookY1))
+    val B: Boolean = ((kingX != rookX2) && (kingY != rookY2))
+    val C: Boolean = ((kingX == rookX1 || kingY == rookY1))
+    val D: Boolean = ((kingX == rookX2 || kingY == rookY2))
 
+
+
+    if (A && B) return 0 else
+        if (C && B) return 1 else
+            if (D && A) return 2 else
+                return 3
+}
 /**
  * Простая
  *
@@ -77,9 +85,12 @@ fun rookOrBishopThreatens(kingX: Int, kingY: Int,
                           bishopX: Int, bishopY: Int): Int {
     val DeltaX: Int = Math.abs (bishopX - kingX)
     val DeltaY: Int = Math.abs (bishopY - kingY)
-if (kingX != rookX && kingY != rookY && DeltaX != DeltaY) return 0 else
-    if ((kingX == rookX || kingY == rookY) && DeltaX != DeltaY) return 1 else
-        if (DeltaX == DeltaY && kingX != rookX && kingY != rookY) return 2 else return 3
+    val A: Boolean = ((kingX != rookX && kingY != rookY))
+    val B: Boolean = ((kingX == rookX || kingY == rookY))
+if (A && DeltaX != DeltaY) return 0 else
+    if (B && DeltaX != DeltaY) return 1 else
+        if (DeltaX == DeltaY && A) return 2 else
+            return 3
 }
 
 
