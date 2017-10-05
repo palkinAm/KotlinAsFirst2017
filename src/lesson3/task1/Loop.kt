@@ -60,18 +60,14 @@ fun digitCountInNumber(n: Int, m: Int): Int =
  * Найти количество цифр в заданном числе n.
  * Например, число 1 содержит 1 цифру, 456 -- 3 цифры, 65536 -- 5 цифр.
  */
-fun digitNumber(n: Int): Int {
-    var count = 0
-    var number = n
-    do {
-        count++
-        number /= 10 }
-while (number > 0)
-    return count
+fun digitNumber(n: Int): Int =
+        if (n > 10) 1 else (digitNumber( n/10) + 1)
 
 
 
-}
+
+
+
 
 /**
  * Простая
@@ -89,14 +85,7 @@ fun fib(n: Int): Int =
  * Для заданных чисел m и n найти наименьшее общее кратное, то есть,
  * минимальное число k, которое делится и на m и на n без остатка
  */
-fun lcm(m: Int, n: Int): Int  {
-    var k = 1
-    for (i in 1..(m * n)) {
-        if ((k % n) == 0 && (k % m) == 0) break
-            k == k+1
-    }
-    return k
-}
+fun lcm(m: Int, n: Int): Int = TODO()
 
 
 
@@ -106,13 +95,13 @@ fun lcm(m: Int, n: Int): Int  {
  * Для заданного числа n > 1 найти минимальный делитель, превышающий 1
  */
 fun minDivisor(n: Int): Int {
-    var k = 2
-    for (i in 2..n) {
-        if (n % k == 0) break
-        k = k + 1
+    var i = 2
+    for (k in 2..n) {
+        if (n % i == 0) break
+        i = i + 1
 
     }
-    return k
+    return i
 }
 
 /**
