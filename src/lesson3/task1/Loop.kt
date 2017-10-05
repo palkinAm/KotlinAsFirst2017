@@ -95,9 +95,9 @@ fun lcm(m: Int, n: Int): Int = TODO()
  * Для заданного числа n > 1 найти минимальный делитель, превышающий 1
  */
 fun minDivisor(n: Int): Int {
-    var i = 2
-    for (k in 2..n) {
-        if (n % i == 0) break
+    var i = 1
+    for (k in 1..n) {
+        if ((i > 1) && (n % i == 0)) break
         i = i + 1
 
     }
