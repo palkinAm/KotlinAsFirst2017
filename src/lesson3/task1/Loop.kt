@@ -61,7 +61,7 @@ fun digitCountInNumber(n: Int, m: Int): Int =
  * Например, число 1 содержит 1 цифру, 456 -- 3 цифры, 65536 -- 5 цифр.
  */
 fun digitNumber(n: Int): Int =
-        if (n > 10) 1 else (digitNumber( n/10) + 1)
+        if (n > 10) 1 else n
 
 
 
@@ -110,13 +110,13 @@ fun minDivisor(n: Int): Int {
  * Для заданного числа n > 1 найти максимальный делитель, меньший n
  */
 fun maxDivisor(n: Int): Int {
-    var k = n
-    for (i in 2 downTo n) {
-        if (n % k == 0 && k < n) break
-        k = k - 1
+    var i = n
+    for (k in 2 downTo n) {
+        if (n % i == 0 && i < n) break
+        i = i + 1
 
     }
-    return k
+    return i
 }
 
 
