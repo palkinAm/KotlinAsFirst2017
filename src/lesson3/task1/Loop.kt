@@ -161,14 +161,8 @@ fun cos(x: Double, eps: Double): Double = TODO()
  * Поменять порядок цифр заданного числа n на обратный: 13478 -> 87431.
  * Не использовать строки при решении задачи.
  */
-fun revert(n: Int): Int {
-    val a: Int = 0
-    while (n > 0)
-        if (a == a * 10 + n % 10)
-            (n == n / 10)
+fun revert(n: Int): Int = TODO()
 
-
-    return n
 
 
 }
