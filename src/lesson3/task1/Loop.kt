@@ -163,11 +163,11 @@ fun cos(x: Double, eps: Double): Double = TODO()
  */
 fun revert(n: Int): Int {
     val a: Int = 0
-    while (n > 0) {
-        if (a == a * 10 + n % 10) {
+    while (n > 0)
+        if (a == a * 10 + n % 10)
             (n == n / 10)
-        }
-    }
+
+
     return n
 
 
