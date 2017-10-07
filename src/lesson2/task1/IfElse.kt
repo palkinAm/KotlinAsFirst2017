@@ -58,14 +58,12 @@ fun timeForHalfWay(t1: Double, v1: Double,
 fun whichRookThreatens(kingX: Int, kingY: Int,
                        rookX1: Int, rookY1: Int,
                        rookX2: Int, rookY2: Int): Int {
-    val NoDanger1: Boolean = ((kingX != rookX1) && (kingY != rookY1))
-    val NoDanger2: Boolean = ((kingX != rookX2) && (kingY != rookY2))
-    val Danger1: Boolean = ((kingX == rookX1 || kingY == rookY1))
-    val Danger2: Boolean = ((kingX == rookX2 || kingY == rookY2))
+    val Rook1Attack: Boolean = ((kingX == rookX1 || kingY == rookY1))
+    val Rook2Attack: Boolean = ((kingX == rookX2 || kingY == rookY2))
     return when {
-        NoDanger1 && NoDanger2 -> 0
-        Danger1 && NoDanger2 -> 1
-        Danger2 && NoDanger1 -> 2
+        !Rook1Attack && !Rook2Attack -> 0
+        Rook1Attack &&  !Rook2Attack -> 1
+        Rook2Attack && !Rook1Attack -> 2
         else -> 3
     }
 }
@@ -84,12 +82,11 @@ fun rookOrBishopThreatens(kingX: Int, kingY: Int,
                           bishopX: Int, bishopY: Int): Int {
     val DeltaX: Int = Math.abs (bishopX - kingX)
     val DeltaY: Int = Math.abs (bishopY - kingY)
-    val NoDangerRook: Boolean = ((kingX != rookX && kingY != rookY))
-    val DangerRook: Boolean = ((kingX == rookX || kingY == rookY))
+    val RookAttack: Boolean = ((kingX == rookX || kingY == rookY))
     return when {
-       NoDangerRook && DeltaX != DeltaY -> 0
-        DangerRook && DeltaX != DeltaY -> 1
-        DeltaX == DeltaY && NoDangerRook -> 2
+        !RookAttack && DeltaX != DeltaY -> 0
+        RookAttack && DeltaX != DeltaY -> 1
+        DeltaX == DeltaY && !RookAttack -> 2
         else -> 3
     }
 }
