@@ -62,7 +62,7 @@ fun whichRookThreatens(kingX: Int, kingY: Int,
     val Rook2Attack: Boolean = ((kingX == rookX2 || kingY == rookY2))
     return when {
         !Rook1Attack && !Rook2Attack -> 0
-        Rook1Attack &&  !Rook2Attack -> 1
+        Rook1Attack &&  !Rook2Attack ->
         Rook2Attack && !Rook1Attack -> 2
         else -> 3
     }
