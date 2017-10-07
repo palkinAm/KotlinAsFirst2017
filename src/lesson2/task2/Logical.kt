@@ -47,11 +47,15 @@ fun queenThreatens(x1: Int, y1: Int, x2: Int, y2: Int): Boolean = TODO()
  * Вернуть true, если утверждение верно
  */
 fun circleInside(x1: Double, y1: Double, r1: Double,
-                 x2: Double, y2: Double, r2: Double): Boolean = when  {
-     ((sqr(x1 - x2) + sqr(y1 - y2) <= sqr(r2)) &&
-            (r2 - Math.sqrt( sqr(x1 - x2) + sqr(y1 - y2)) >= r1)) -> true
-    else -> false
+                 x2: Double, y2: Double, r2: Double): Boolean {
+    val SqrDifferenceX: Double = sqr(x1 - x2)
+    val SqrDifferenceY: Double = sqr(y1 - y2)
+    when {
+        ((SqrDifferenceX + SqrDifferenceY <= sqr(r2)) &&
+                (r2 - Math.sqrt(SqrDifferenceX + SqrDifferenceY) >= r1)) -> return true
+        else -> return false
 
+    }
 }
 
 
