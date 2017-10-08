@@ -80,13 +80,14 @@ fun whichRookThreatens(kingX: Int, kingY: Int,
 fun rookOrBishopThreatens(kingX: Int, kingY: Int,
                           rookX: Int, rookY: Int,
                           bishopX: Int, bishopY: Int): Int {
-    val DeltaX: Int = Math.abs (bishopX - kingX)
-    val DeltaY: Int = Math.abs (bishopY - kingY)
+    val DeltaX: Int = Math.abs(bishopX - kingX)
+    val DeltaY: Int = Math.abs(bishopY - kingY)
     val RookAttack: Boolean = ((kingX == rookX || kingY == rookY))
+    val DeltaCompare: Boolean = (DeltaX == DeltaY)
     return when {
-        !RookAttack && DeltaX != DeltaY -> 0
-        RookAttack && DeltaX != DeltaY -> 1
-        DeltaX == DeltaY && !RookAttack -> 2
+        !RookAttack && !DeltaCompare -> 0
+        RookAttack && !DeltaCompare -> 1
+        DeltaCompare && !RookAttack -> 2
         else -> 3
     }
 }
