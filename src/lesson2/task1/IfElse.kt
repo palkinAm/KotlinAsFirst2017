@@ -120,20 +120,14 @@ fun segmentLength(a: Int, b: Int, c: Int, d: Int): Int {
     val AD: Int = d - a
     val CD: Int = d - c
 
-    if (a < c)
-        if (d < b) return CD
-    else if (d >= b)
-            if (b < c) return -1
-            else if (b > c) return CB
-            else return 0
-        else return -1
-            else if (a > c)
-                    if (a < d)
-                        if (b >= d) return AD else return AB
-                    else if (a > d) return -1 else return 0
-                else if (b > d) return CD
-                    else if (b < d) return AB
-    else return AB
+    when {
+        (b < d) && (c <= a) -> return AB
+        (a == c) &&  (b == d) -> return AB
+        (b >= c) && (c > a) && (d > b) -> return CB
+        (a <= c) && (d < b) && (a < d) -> return CD
+        (d >= a) && (a > c) && (d <= b) -> return AD
+        else -> return -1
+    }
 
 }
 
