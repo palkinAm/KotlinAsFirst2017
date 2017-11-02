@@ -154,7 +154,16 @@ fun times(a: List<Double>, b: List<Double>): Double = TODO()
  * Коэффициенты многочлена заданы списком p: (p0, p1, p2, p3, ..., pN).
  * Значение пустого многочлена равно 0.0 при любом x.
  */
-fun polynom(p: List<Double>, x: Double): Double = TODO()
+fun polynom(p: List<Double>, x: Double): Double {
+    var answer = 0.0
+    val length = p.count()
+    for (i in 0..length - 1) {
+        answer += p[i] * Math.pow(x, i.toDouble())
+    }
+        return answer
+
+}
+
 
 /**
  * Средняя
@@ -166,7 +175,15 @@ fun polynom(p: List<Double>, x: Double): Double = TODO()
  *
  * Обратите внимание, что данная функция должна изменять содержание списка list, а не его копии.
  */
-fun accumulate(list: MutableList<Double>): MutableList<Double> = TODO()
+fun accumulate(list: MutableList<Double>): MutableList<Double> {
+     if (list.count() == 0) return list
+       var answer = list[0]
+           for (i in 1..list.count() - 1) {
+                answer += list[i]
+                   list[i] = answer
+    }
+    return list
+}
 
 /**
  * Средняя

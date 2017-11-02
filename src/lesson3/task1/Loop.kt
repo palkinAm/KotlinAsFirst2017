@@ -105,7 +105,7 @@ fun minDivisor(n: Int): Int {
     var i = 2
     for (k in 2..n) {
         if (n % k == 0) break
-        i = i + 1
+        i++
 
     }
     return i
@@ -207,18 +207,18 @@ fun hasDifferentDigits(n: Int): Boolean = TODO()
  * Например, 2-я цифра равна 4, 7-я 5, 12-я 6.
  */
 fun squareSequenceDigit(n: Int): Int {
-    var A = 0
+    var N = 0
     var sqr = 0
     var sqrLine = ""
     var lenght = 0
     while (lenght <= n - 1) {
-        A = A + 1
-        sqr = A * A
-        sqrLine = sqr.toString()
-        lenght += sqrLine.length
+        N++
+           sqr = N * N
+             sqrLine = sqr.toString()
+                lenght += sqrLine.length
     }
-    A = sqrLine.length - (lenght - n) - 1
-    return sqrLine[A].toString().toInt()
+    N = sqrLine.length - (lenght - n) - 1
+         return sqrLine[N].toString().toInt()
 }
 
 
