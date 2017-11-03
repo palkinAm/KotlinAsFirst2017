@@ -20,9 +20,7 @@ fun pointInsideCircle(x: Double, y: Double, x0: Double, y0: Double, r: Double) =
 fun isNumberHappy(number: Int): Boolean {
     val AB: Int = ((number / 1000) + (number / 100 % 10))
     val CD: Int = ((number % 10) + (number % 100 / 10))
-    if (AB == CD) return (AB == CD)
-    else return false
-
+   return (AB == CD)
 }
 
 
@@ -53,9 +51,6 @@ fun circleInside(x1: Double, y1: Double, r1: Double,
                  x2: Double, y2: Double, r2: Double): Boolean {
     val SqrDifferenceX: Double = sqr(x1 - x2)
     val SqrDifferenceY: Double = sqr(y1 - y2)
-
-   ((SqrDifferenceX + SqrDifferenceY <= sqr(r2)) &&
-            (r2 - Math.sqrt(SqrDifferenceX + SqrDifferenceY) >= r1))
     return (((SqrDifferenceX + SqrDifferenceY <= sqr(r2)) &&
             (r2 - Math.sqrt(SqrDifferenceX + SqrDifferenceY) >= r1))) || return false
 

@@ -78,8 +78,8 @@ fun digitNumber(n: Int): Int = TODO()
 fun fib(n: Int): Int {
     var q = 1
     var w = 0
-    for (i in 2..n)
-    { q = q + w
+    for (i in 2..n) {
+     q = q + w
         w = q - w
     }
     return q
@@ -104,7 +104,7 @@ fun lcm(m: Int, n: Int): Int = TODO()
 fun minDivisor(n: Int): Int {
     var i = 2
     for (k in 2..n) {
-        if (n % k == 0) break
+        if (n % i == 0) break
         i++
 
     }
@@ -119,7 +119,7 @@ fun minDivisor(n: Int): Int {
 fun maxDivisor(n: Int): Int {
     var i = n
     for ( k in n downTo 2) {
-        if ((n % k) == 0 && (n > k)) break
+        if ((n % i) == 0 && (n > i)) break
         i= i-1
     }
     return i
