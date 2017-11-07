@@ -52,8 +52,7 @@ fun circleInside(x1: Double, y1: Double, r1: Double,
     val SqrDifferenceX: Double = sqr(x1 - x2)
     val SqrDifferenceY: Double = sqr(y1 - y2)
     return (((SqrDifferenceX + SqrDifferenceY <= sqr(r2)) &&
-            (r2 - Math.sqrt(SqrDifferenceX + SqrDifferenceY) >= r1))) || return false
-
+            (r2 - Math.sqrt(SqrDifferenceX + SqrDifferenceY) >= r1)))
 
 
 }
