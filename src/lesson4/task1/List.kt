@@ -144,7 +144,16 @@ fun center(list: MutableList<Double>): MutableList<Double> = TODO()
  * представленные в виде списков a и b. Скалярное произведение считать по формуле:
  * C = a1b1 + a2b2 + ... + aNbN. Произведение пустых векторов считать равным 0.0.
  */
-fun times(a: List<Double>, b: List<Double>): Double = TODO()
+fun times(a: List<Double>, b: List<Double>): Double {
+    var AB = 0.0
+    if (a.isEmpty() && b.isEmpty())
+        return 0.0
+    for (i in 0 .. a.count() - 1) {
+        AB += a[i] * b[i]
+    }
+    return AB
+}
+
 
 /**
  * Средняя
@@ -209,7 +218,18 @@ fun factorizeToString(n: Int): String = TODO()
  * Результат перевода вернуть в виде списка цифр в base-ичной системе от старшей к младшей,
  * например: n = 100, base = 4 -> (1, 2, 1, 0) или n = 250, base = 14 -> (1, 3, 12)
  */
-fun convert(n: Int, base: Int): List<Int> = TODO()
+fun convert(n: Int, base: Int): List<Int> {
+    val Answer = mutableListOf<Int>()
+    var B = n
+    if (n == 0) return listOf(0)
+    while (B != 0) {
+        val k = B % base
+        Answer.add(k)
+        B /= base
+    }
+    Answer.reverse()
+    return Answer
+}
 
 /**
  * Сложная
