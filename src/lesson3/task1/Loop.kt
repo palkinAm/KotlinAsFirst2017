@@ -175,7 +175,17 @@ fun cos(x: Double, eps: Double): Double = TODO()
  * Поменять порядок цифр заданного числа n на обратный: 13478 -> 87431.
  * Не использовать строки при решении задачи.
  */
-fun revert(n: Int): Int = TODO()
+fun revert(n: Int): Int {
+    var Answer = 0
+    var Numb = n
+    while (Numb > 0) {
+        Answer *= 10
+        Answer += Numb % 10
+        Numb /= 10
+    }
+    return Answer
+}
+
 
 
 
@@ -197,7 +207,16 @@ fun isPalindrome(n: Int): Boolean = TODO()
  * Для заданного числа n определить, содержит ли оно различающиеся цифры.
  * Например, 54 и 323 состоят из разных цифр, а 111 и 0 из одинаковых.
  */
-fun hasDifferentDigits(n: Int): Boolean = TODO()
+fun hasDifferentDigits(n: Int): Boolean {
+    val N = n.toString()
+    val Length = N.length
+    val First = N.first()
+    for (i in 0..Length - 1) {
+        if (First != N[i])
+            return true
+    }
+    return false
+}
 
 /**
  * Сложная
