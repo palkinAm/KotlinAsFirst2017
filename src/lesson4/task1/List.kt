@@ -212,7 +212,7 @@ fun factorize(n: Int): List<Int> {
     if (Numb != 1)
         Answer.add(Numb)
     return Answer
-
+}
 
 /**
  * Сложная
