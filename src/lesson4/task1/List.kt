@@ -110,7 +110,7 @@ fun buildSumExample(list: List<Int>) = list.joinToString(separator = " + ", post
 fun abs(v: List<Double>): Double {
     var result = 0.0
     for (i in v)
-        result = result + sqr(i)
+        result += sqr(i)
     return Math.sqrt(result)
 }
 
@@ -164,8 +164,7 @@ fun times(a: List<Double>, b: List<Double>): Double {
  */
 fun polynom(p: List<Double>, x: Double): Double {
     var answer = 0.0
-    val length = p.count()
-    for (i in 0..length - 1) {
+    for (i in 0..p.count() - 1) {
         answer += p[i] * Math.pow(x, i.toDouble())
     }
     return answer
@@ -202,7 +201,7 @@ fun accumulate(list: MutableList<Double>): MutableList<Double> {
 fun factorize(n: Int): List<Int> {
     var numb = n
     val answer = mutableListOf<Int>()
-    for (i in 2..Math.round(Math.sqrt(n.toDouble())).toInt())
+    for (i in 2..Math.sqrt(n.toDouble()).toInt())
         while (numb % i == 0) {
             answer.add(i)
             numb /= i
