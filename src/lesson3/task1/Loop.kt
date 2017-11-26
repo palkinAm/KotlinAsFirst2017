@@ -102,13 +102,13 @@ fun lcm(m: Int, n: Int): Int = TODO()
  * Для заданного числа n > 1 найти минимальный делитель, превышающий 1
  */
 fun minDivisor(n: Int): Int {
-    var i = 2
-    for (k in 2..n) {
-        if (n % i == 0) break
-        i++
+    var result = 2
+    for (i in 2..n) {
+        if (n % result == 0) break
+        result ++
 
     }
-    return i
+    return result
 }
 
 /**
@@ -117,12 +117,12 @@ fun minDivisor(n: Int): Int {
  * Для заданного числа n > 1 найти максимальный делитель, меньший n
  */
 fun maxDivisor(n: Int): Int {
-    var i = n
-    for ( k in n downTo 2) {
-        if ((n % i) == 0 && (n > i)) break
-        i= i-1
+    val result = n
+    for ( i in n downTo 2) {
+        if ((n % result) == 0 && (n > result)) break
+        result == result - 1
     }
-    return i
+    return result
 }
 
 
@@ -176,14 +176,14 @@ fun cos(x: Double, eps: Double): Double = TODO()
  * Не использовать строки при решении задачи.
  */
 fun revert(n: Int): Int {
-    var Answer = 0
-    var Numb = n
-    while (Numb > 0) {
-        Answer *= 10
-        Answer += Numb % 10
-        Numb /= 10
+    var answer = 0
+    var numb = n
+    while (numb > 0) {
+        answer *= 10
+        answer += numb % 10
+        numb /= 10
     }
-    return Answer
+    return answer
 }
 
 
@@ -209,10 +209,10 @@ fun isPalindrome(n: Int): Boolean = TODO()
  */
 fun hasDifferentDigits(n: Int): Boolean {
     val N = n.toString()
-    val Length = N.length
-    val First = N.first()
-    for (i in 0..Length - 1) {
-        if (First != N[i])
+    val length = N.length
+    val first = N.first()
+    for (i in 0..length - 1) {
+        if (first != N[i])
             return true
     }
     return false
@@ -232,12 +232,12 @@ fun squareSequenceDigit(n: Int): Int {
     var lenght = 0
     while (lenght <= n - 1) {
         N++
-           sqr = N * N
-             sqrLine = sqr.toString()
-                lenght += sqrLine.length
+        sqr = N * N
+        sqrLine = sqr.toString()
+        lenght += sqrLine.length
     }
     N = sqrLine.length - (lenght - n) - 1
-         return sqrLine[N].toString().toInt()
+    return sqrLine[N].toString().toInt()
 }
 
 

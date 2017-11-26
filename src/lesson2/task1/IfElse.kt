@@ -80,14 +80,14 @@ fun whichRookThreatens(kingX: Int, kingY: Int,
 fun rookOrBishopThreatens(kingX: Int, kingY: Int,
                           rookX: Int, rookY: Int,
                           bishopX: Int, bishopY: Int): Int {
-    val DeltaX: Int = Math.abs(bishopX - kingX)
-    val DeltaY: Int = Math.abs(bishopY - kingY)
-    val RookAttack: Boolean = ((kingX == rookX || kingY == rookY))
-    val DeltaCompare: Boolean = (DeltaX == DeltaY)
+    val deltaX: Int = Math.abs(bishopX - kingX)
+    val deltaY: Int = Math.abs(bishopY - kingY)
+    val rookAttack: Boolean = ((kingX == rookX || kingY == rookY))
+    val deltaCompare: Boolean = (deltaX == deltaY)
     return when {
-        !RookAttack && !DeltaCompare -> 0
-        RookAttack && !DeltaCompare -> 1
-        DeltaCompare && !RookAttack -> 2
+        !rookAttack && !deltaCompare -> 0
+        rookAttack && !deltaCompare -> 1
+        deltaCompare && !rookAttack -> 2
         else -> 3
     }
 }
@@ -115,16 +115,16 @@ fun triangleKind(a: Double, b: Double, c: Double): Int = TODO()
  * Если пересечения нет, вернуть -1.
  */
 fun segmentLength(a: Int, b: Int, c: Int, d: Int): Int {
-    val AB: Int = b - a
-    val CB: Int = b - c
-    val AD: Int = d - a
-    val CD: Int = d - c
+    val ab: Int = b - a
+    val cb: Int = b - c
+    val ad: Int = d - a
+    val cd: Int = d - c
 
     when {
-        ((b < d) && (c <= a) || (a == c) && (b == d)) -> return AB
-        (b >= c) && (c > a) && (d >= b) -> return CB
-        (a <= c) && (d < b) && (a <= d) -> return CD
-        (d >= a) && (a > c) && (d <= b) -> return AD
+        ((b < d) && (c <= a) || (a == c) && (b == d)) -> return ab
+        (b >= c) && (c > a) && (d >= b) -> return cb
+        (a <= c) && (d < b) && (a <= d) -> return cd
+        (d >= a) && (a > c) && (d <= b) -> return ad
         else -> return -1
     }
 

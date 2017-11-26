@@ -122,10 +122,9 @@ fun abs(v: List<Double>): Double {
  * Рассчитать среднее арифметическое элементов списка list. Вернуть 0.0, если список пуст
  */
 fun mean(list: List<Double>): Double =
-    when { (list.isEmpty ()) -> 0.0
-        else -> list.sum()/list.count()
-
-}
+        when { (list.isEmpty()) -> 0.0
+            else -> list.sum() / list.count()
+        }
 
 /**
  * Средняя
@@ -145,13 +144,13 @@ fun center(list: MutableList<Double>): MutableList<Double> = TODO()
  * C = a1b1 + a2b2 + ... + aNbN. Произведение пустых векторов считать равным 0.0.
  */
 fun times(a: List<Double>, b: List<Double>): Double {
-    var AB = 0.0
+    var ab = 0.0
     if (a.isEmpty() && b.isEmpty())
         return 0.0
     for (i in 0 .. a.count() - 1) {
-        AB += a[i] * b[i]
+        ab += a[i] * b[i]
     }
-    return AB
+    return ab
 }
 
 
@@ -169,8 +168,7 @@ fun polynom(p: List<Double>, x: Double): Double {
     for (i in 0..length - 1) {
         answer += p[i] * Math.pow(x, i.toDouble())
     }
-        return answer
-
+    return answer
 }
 
 
@@ -185,11 +183,11 @@ fun polynom(p: List<Double>, x: Double): Double {
  * Обратите внимание, что данная функция должна изменять содержание списка list, а не его копии.
  */
 fun accumulate(list: MutableList<Double>): MutableList<Double> {
-     if (list.count() == 0) return list
-       var answer = list[0]
-           for (i in 1..list.count() - 1) {
-                answer += list[i]
-                   list[i] = answer
+    if (list.count() == 0) return list
+    var answer = list[0]
+    for (i in 1..list.count() - 1) {
+        answer += list[i]
+        list[i] = answer
     }
     return list
 }
@@ -202,16 +200,16 @@ fun accumulate(list: MutableList<Double>): MutableList<Double> {
  * Множители в списке должны располагаться по возрастанию.
  */
 fun factorize(n: Int): List<Int> {
-    var Numb = n
-    val Answer = mutableListOf<Int>()
+    var numb = n
+    val answer = mutableListOf<Int>()
     for (i in 2..Math.round(Math.sqrt(n.toDouble())).toInt())
-        while (Numb % i == 0) {
-            Answer.add(i)
-            Numb /= i
+        while (numb % i == 0) {
+            answer.add(i)
+            numb /= i
         }
-    if (Numb != 1)
-        Answer.add(Numb)
-    return Answer
+    if (numb != 1)
+        answer.add(numb)
+    return answer
 }
 
 /**
@@ -230,16 +228,16 @@ fun factorizeToString(n: Int): String = factorize(n).joinToString(separator = "*
  * например: n = 100, base = 4 -> (1, 2, 1, 0) или n = 250, base = 14 -> (1, 3, 12)
  */
 fun convert(n: Int, base: Int): List<Int> {
-    val Answer = mutableListOf<Int>()
+    val answer = mutableListOf<Int>()
     var B = n
     if (n == 0) return listOf(0)
     while (B != 0) {
         val k = B % base
-        Answer.add(k)
+        answer.add(k)
         B /= base
     }
-    Answer.reverse()
-    return Answer
+    answer.reverse()
+    return answer
 }
 
 /**

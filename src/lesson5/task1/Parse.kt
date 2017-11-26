@@ -67,15 +67,15 @@ fun main(args: Array<String>) {
  * При неверном формате входной строки вернуть пустую строку
  */
 fun dateStrToDigit(str: String): String {
-    val Months = listOf<String>("января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа",
+    val months = listOf<String>("января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа",
             "сентября", "октября", "ноября", "декабря")
-    val Units = str.split(" ").toMutableList()
-    if ((Units.count() != 3) || !(Units[1] in Months)) return ""
-    val month = Months.indexOf(Units[1])
-    Units[0] = twoDigitStr(Units[0].toInt())
-    Units[1] = twoDigitStr(month.toInt() + 1)
-    return Units.joinToString(separator = ".")
-
+    val units = str.split(" ").toMutableList()
+    if ((units.count() != 3) || !(units[1] in months))
+        return ""
+    val month = months.indexOf(units[1])
+    units[0] = twoDigitStr(units[0].toInt())
+    units[1] = twoDigitStr(month.toInt() + 1)
+    return units.joinToString(separator = ".")
 }
 
 /**
@@ -99,7 +99,14 @@ fun dateDigitToStr(digital: String): String = TODO()
  * Все символы в номере, кроме цифр, пробелов и +-(), считать недопустимыми.
  * При неверном формате вернуть пустую строку
  */
-fun flattenPhoneNumber(phone: String): String = TODO()
+fun flattenPhoneNumber(phone: String): String {
+    if  (phone.isEmpty()) return ""
+    val plus = phone[0] == '+'
+    val number = phone.replace(Regex("[-+() ]"), "")
+    if  (!number.matches(Regex("[0-9]+")))
+        return ""
+    return (if (plus) "+" else "") + number
+}
 
 /**
  * Средняя
