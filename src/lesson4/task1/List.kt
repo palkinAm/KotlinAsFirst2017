@@ -235,8 +235,7 @@ fun convert(n: Int, base: Int): List<Int> {
         answer.add(k)
         b /= base
     }
-    answer.reverse()
-    return answer
+    return answer.reversed()
 }
 
 /**
