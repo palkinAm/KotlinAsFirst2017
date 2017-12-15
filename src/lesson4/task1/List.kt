@@ -1,4 +1,5 @@
 @file:Suppress("UNUSED_PARAMETER")
+
 package lesson4.task1
 
 import lesson1.task1.discriminant
@@ -115,7 +116,6 @@ fun abs(v: List<Double>): Double {
 }
 
 
-
 /**
  * Простая
  *
@@ -147,7 +147,7 @@ fun times(a: List<Double>, b: List<Double>): Double {
     var ab = 0.0
     if (a.isEmpty() && b.isEmpty())
         return 0.0
-    for (i in 0 .. a.count() - 1) {
+    for (i in 0..a.count() - 1) {
         ab += a[i] * b[i]
     }
     return ab
@@ -228,12 +228,12 @@ fun factorizeToString(n: Int): String = factorize(n).joinToString(separator = "*
  */
 fun convert(n: Int, base: Int): List<Int> {
     val answer = mutableListOf<Int>()
-    var B = n
+    var b = n
     if (n == 0) return listOf(0)
-    while (B != 0) {
-        val k = B % base
+    while (b != 0) {
+        val k = b % base
         answer.add(k)
-        B /= base
+        b /= base
     }
     answer.reverse()
     return answer

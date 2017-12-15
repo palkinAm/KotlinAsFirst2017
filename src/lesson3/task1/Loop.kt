@@ -102,13 +102,12 @@ fun lcm(m: Int, n: Int): Int = TODO()
  * Для заданного числа n > 1 найти минимальный делитель, превышающий 1
  */
 fun minDivisor(n: Int): Int {
-    var result = 2
+    var i = 2
     for (i in 2..n) {
-        if (n % result == 0) break
-        result ++
+        if (n % i == 0) return i
 
     }
-    return result
+    return i ++
 }
 
 /**
