@@ -70,7 +70,7 @@ fun dateStrToDigit(str: String): String {
     val months = listOf<String>("января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа",
             "сентября", "октября", "ноября", "декабря")
     val units = str.split(" ").toMutableList()
-    if ((units.count() != 3) || !(units[1] in months)) return ""
+    if ((units.count() != 3) || (units[1] !in months)) return ""
     val month = months.indexOf(units[1])
     units[0] = twoDigitStr(units[0].toInt())
     units[1] = twoDigitStr(month.toInt() + 1)
