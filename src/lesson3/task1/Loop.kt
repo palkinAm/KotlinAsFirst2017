@@ -208,18 +208,19 @@ fun hasDifferentDigits(n: Int): Boolean {
  * Например, 2-я цифра равна 4, 7-я 5, 12-я 6.
  */
 fun squareSequenceDigit(n: Int): Int {
-    var n = 0
+    var k = 0
     var sqr = 0
-    var sqrLine = ""
-    var lenght = 0
-    while (lenght <= n - 1) {
-        n++
-        sqr = n * n
-        sqrLine = sqr.toString()
-        lenght += sqrLine.length
+    var sqrline = ""
+    var length = 0
+    while (length <= n - 1) {
+        k++
+        sqr = k * k
+        sqrline = sqr.toString()
+        length += sqrline.length
     }
-    n = sqrLine.length - (lenght - n) - 1
-    return sqrLine[n].toString().toInt()
+    k = sqrline.length - (length - n) - 1
+    return sqrline[k].toString().toInt()
+
 }
 
 
@@ -231,16 +232,16 @@ fun squareSequenceDigit(n: Int): Int {
  * Например, 2-я цифра равна 1, 9-я 2, 14-я 5.
  */
 fun fibSequenceDigit(n: Int): Int {
-    var n = 0
+    var k = 0
     var fib = 0
     var fibSqrLine = ""
     var fibLenght = 0
     while (fibLenght < n) {
-        n++
-        fib = fib(n)
+        k++
+        fib = fib(k)
         fibSqrLine = fib.toString()
         fibLenght += fibSqrLine.length
     }
-    n = fibSqrLine.length - (fibLenght - n) - 1
-    return fibSqrLine[n].toString().toInt()
+    k = fibSqrLine.length - (fibLenght - n) - 1
+    return fibSqrLine[k].toString().toInt()
 }
