@@ -1,4 +1,5 @@
 @file:Suppress("UNUSED_PARAMETER")
+
 package lesson3.task1
 
 /**
@@ -34,7 +35,7 @@ fun isPrime(n: Int): Boolean {
  */
 fun isPerfect(n: Int): Boolean {
     var sum = 1
-    for (m in 2..n/2) {
+    for (m in 2..n / 2) {
         if (n % m > 0) continue
         sum += m
         if (sum > n) break
@@ -63,12 +64,6 @@ fun digitCountInNumber(n: Int, m: Int): Int =
 fun digitNumber(n: Int): Int = TODO()
 
 
-
-
-
-
-
-
 /**
  * Простая
  *
@@ -79,7 +74,7 @@ fun fib(n: Int): Int {
     var q = 1
     var w = 0
     for (i in 2..n) {
-     q = q + w
+        q = q + w
         w = q - w
     }
     return q
@@ -95,7 +90,6 @@ fun fib(n: Int): Int {
 fun lcm(m: Int, n: Int): Int = TODO()
 
 
-
 /**
  * Простая
  *
@@ -105,9 +99,8 @@ fun minDivisor(n: Int): Int {
     var i = 2
     for (i in 2..n) {
         if (n % i == 0) return i
-
     }
-    return i ++
+    return i++
 }
 
 /**
@@ -117,19 +110,12 @@ fun minDivisor(n: Int): Int {
  */
 fun maxDivisor(n: Int): Int {
     var result = n
-    for ( i in n downTo 2) {
+    for (i in n downTo 2) {
         if ((n % result) == 0 && (n > result)) break
         result -= 1
     }
     return result
 }
-
-
-
-
-
-
-
 
 
 /**
@@ -176,19 +162,14 @@ fun cos(x: Double, eps: Double): Double = TODO()
  */
 fun revert(n: Int): Int {
     var answer = 0
-    var numb = n
-    while (numb > 0) {
+    var number = n
+    while (number > 0) {
         answer *= 10
-        answer += numb % 10
-        numb /= 10
+        answer += number % 10
+        number /= 10
     }
     return answer
 }
-
-
-
-
-
 
 
 /**
@@ -207,15 +188,17 @@ fun isPalindrome(n: Int): Boolean = TODO()
  * Например, 54 и 323 состоят из разных цифр, а 111 и 0 из одинаковых.
  */
 fun hasDifferentDigits(n: Int): Boolean {
-    val N = n.toString()
-    val length = N.length
-    val first = N.first()
-    for (i in 0..length - 1) {
-        if (first != N[i])
+    var number = n
+    val digit = n % 10
+    while (number != 0) {
+        if (number % 10 != digit)
             return true
+        number /= 10
     }
     return false
 }
+
+
 
 /**
  * Сложная
@@ -225,18 +208,18 @@ fun hasDifferentDigits(n: Int): Boolean {
  * Например, 2-я цифра равна 4, 7-я 5, 12-я 6.
  */
 fun squareSequenceDigit(n: Int): Int {
-    var N = 0
+    var n = 0
     var sqr = 0
     var sqrLine = ""
     var lenght = 0
     while (lenght <= n - 1) {
-        N++
-        sqr = N * N
+        n++
+        sqr = n * n
         sqrLine = sqr.toString()
         lenght += sqrLine.length
     }
-    N = sqrLine.length - (lenght - n) - 1
-    return sqrLine[N].toString().toInt()
+    n = sqrLine.length - (lenght - n) - 1
+    return sqrLine[n].toString().toInt()
 }
 
 
@@ -248,16 +231,16 @@ fun squareSequenceDigit(n: Int): Int {
  * Например, 2-я цифра равна 1, 9-я 2, 14-я 5.
  */
 fun fibSequenceDigit(n: Int): Int {
-    var N = 0
+    var n = 0
     var fib = 0
     var fibSqrLine = ""
     var fibLenght = 0
     while (fibLenght < n) {
-        N++
-        fib = fib(N)
+        n++
+        fib = fib(n)
         fibSqrLine = fib.toString()
         fibLenght += fibSqrLine.length
     }
-    N = fibSqrLine.length - (fibLenght - n) - 1
-    return fibSqrLine[N].toString().toInt()
+    n = fibSqrLine.length - (fibLenght - n) - 1
+    return fibSqrLine[n].toString().toInt()
 }

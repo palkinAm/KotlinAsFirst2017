@@ -147,7 +147,7 @@ fun times(a: List<Double>, b: List<Double>): Double {
     var ab = 0.0
     if (a.isEmpty() && b.isEmpty())
         return 0.0
-    for (i in 0..a.count() - 1) {
+    for (i in 0..a.lastIndex) {
         ab += a[i] * b[i]
     }
     return ab
