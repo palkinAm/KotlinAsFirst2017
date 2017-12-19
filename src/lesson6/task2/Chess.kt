@@ -21,8 +21,16 @@ data class Square(val column: Int, val row: Int) {
      * В нотации, колонки обозначаются латинскими буквами от a до h, а ряды -- цифрами от 1 до 8.
      * Для клетки не в пределах доски вернуть пустую строку
      */
-    fun notation(): String = TODO()
+    fun notation(): String  {
+        val filelet = ('a'..'h').toList()
+        if (!inside()) return ""
+        else {
+            val letter = filelet[column - 1]
+            return "$letter$row"
+        }
+    }
 }
+
 
 /**
  * Простая
