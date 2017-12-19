@@ -177,7 +177,23 @@ fun mostExpensive(description: String): String = TODO()
  *
  * Вернуть -1, если roman не является корректным римским числом
  */
-fun fromRoman(roman: String): Int = TODO()
+fun fromRoman(roman: String): Int  {
+    val rome = listOf<String>("M", "CM", "D", "CD", "C", "XC", "L", "XL",
+            "X", "IX", "V", "IV", "I").withIndex()
+    val arabian = listOf<Int>(1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1)
+    val romeNum = StringBuilder(roman)
+    var b = 0
+    var arabianNum = 0
+    for ((romeIndex, romeStr) in rome)
+        while (romeNum.isNotEmpty())
+            if (romeNum.indexOf(romeStr, b) == b) {
+                arabianNum += arabian[romeIndex]
+                b += romeStr.length
+                if (b == romeNum.length)
+                    return arabianNum
+            } else break
+    return -1
+}
 
 /**
  * Очень сложная
