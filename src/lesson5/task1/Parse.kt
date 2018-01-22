@@ -84,7 +84,17 @@ fun dateStrToDigit(str: String): String {
  * Перевести её в строковый формат вида "15 июля 2016".
  * При неверном формате входной строки вернуть пустую строку
  */
-fun dateDigitToStr(digital: String): String = TODO()
+fun dateDigitToStr(digital: String): String {
+    val months = listOf<String>("января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа",
+            "сентября", "октября", "ноября", "декабря")
+    val date = digital.split(".")
+    for (i in date)
+        if (!i.matches(Regex("[0-9]+")))
+            return ""
+    if (date[0].toInt() in 1 .. 31 && date[1].toInt() in 1 .. 12 && date.size == 3)
+        return "${date[0].toInt()} ${months[date[1].toInt() - 1]} ${date[2]}"
+    return ""
+}
 
 /**
  * Средняя
@@ -140,7 +150,26 @@ fun bestHighJump(jumps: String): Int = TODO()
  * Вернуть значение выражения (6 для примера).
  * Про нарушении формата входной строки бросить исключение IllegalArgumentException
  */
-fun plusMinus(expression: String): Int = TODO()
+fun plusMinus(expression: String): Int {
+    val expression1 = expression.trim().split(" ")
+    if (expression1.size == 0)
+        throw IllegalArgumentException()
+    var answer = 0
+    if (expression1[0].matches(Regex("[0-9]+")))
+        answer = expression1[0].toInt()
+    else
+        throw IllegalArgumentException()
+    for (i in 2..expression1.size - 1 step 2) {
+        if (expression1[i].matches(Regex("[0-9]+")))
+            answer += when (expression1[i - 1]) {
+                "+" -> expression1[i].toInt()
+                "-" -> -expression1[i].toInt()
+                else -> throw IllegalArgumentException()
+            }
+        else throw IllegalArgumentException()
+    }
+    return answer
+}
 
 /**
  * Сложная
@@ -151,7 +180,18 @@ fun plusMinus(expression: String): Int = TODO()
  * Вернуть индекс начала первого повторяющегося слова, или -1, если повторов нет.
  * Пример: "Он пошёл в в школу" => результат 9 (индекс первого 'в')
  */
-fun firstDuplicateIndex(str: String): Int = TODO()
+fun firstDuplicateIndex(str: String): Int {
+    val str1 = str.trim().split(" ")
+    if (str1.size == 0 || str1.size == 1)
+        return -1
+    var a = 0
+    for (i in 1 .. str1.size - 1) {
+        if (str1[i].toLowerCase() == str1[i - 1].toLowerCase())
+            return a
+        a += str1[i - 1].length + 1
+    }
+    return -1
+}
 
 /**
  * Сложная

@@ -1,6 +1,8 @@
 @file:Suppress("UNUSED_PARAMETER")
 package lesson6.task2
 
+import kotlin.collections.ArrayList
+
 /**
  * Клетка шахматной доски. Шахматная доска квадратная и имеет 8 х 8 клеток.
  * Поэтому, обе координаты клетки (горизонталь row, вертикаль column) могут находиться в пределах от 1 до 8.
@@ -168,7 +170,13 @@ fun bishopTrajectory(start: Square, end: Square): List<Square> = TODO()
  * Пример: kingMoveNumber(Square(3, 1), Square(6, 3)) = 3.
  * Король может последовательно пройти через клетки (4, 2) и (5, 2) к клетке (6, 3).
  */
-fun kingMoveNumber(start: Square, end: Square): Int = TODO()
+fun kingMoveNumber(start: Square, end: Square): Int {
+    if (!(start.inside() && end.inside()))
+        throw IllegalArgumentException()
+    val r = Math.abs(start.row - end.row)
+    val c = Math.abs(start.column - end.column)
+    return if (r > c) r else c
+}
 
 /**
  * Сложная
@@ -209,7 +217,31 @@ fun kingTrajectory(start: Square, end: Square): List<Square> = TODO()
  * Пример: knightMoveNumber(Square(3, 1), Square(6, 3)) = 3.
  * Конь может последовательно пройти через клетки (5, 2) и (4, 4) к клетке (6, 3).
  */
-fun knightMoveNumber(start: Square, end: Square): Int = TODO()
+fun knightMoveNumber(start: Square, end: Square): Int {
+    val a = listOf(Pair(-2, -1), Pair(-1, -2), Pair(1, -2), Pair(2, -1), Pair(2, 1), Pair(1, 2), Pair(-1, 2), Pair(-2, 1))
+    if (!(start.inside() && end.inside()))
+        throw IllegalArgumentException()
+    val map = arrayListOf<ArrayList<Int>>()
+    for (i in 0 .. 7) {
+        val l = arrayListOf<Int>()
+        for (j in 0 .. 7) {
+            l.add(Int.MAX_VALUE)
+        }
+        map.add(l)
+    }
+    fun x(c: Int, s: Square, map: ArrayList<ArrayList<Int>>) {
+        if (map[s.row - 1][s.column - 1] <= c)
+            return
+        map[s.row - 1][s.column - 1] = c
+        for ((dColumn, dRow) in a) {
+            val p = Square(s.column + dColumn, s.row + dRow)
+            if (p.inside())
+                x(c + 1, p, map)
+        }
+    }
+    x(0, start, map)
+    return map[end.row - 1][end.column - 1]
+}
 
 /**
  * Очень сложная
