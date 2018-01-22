@@ -246,7 +246,15 @@ fun convert(n: Int, base: Int): List<Int> {
  * строчными буквами: 10 -> a, 11 -> b, 12 -> c и так далее.
  * Например: n = 100, base = 4 -> 1210, n = 250, base = 14 -> 13c
  */
-fun convertToString(n: Int, base: Int): String = TODO()
+fun convertToString(n: Int, base: Int): String {
+    val c = ('0'..'9') + ('a'..'z')
+    val n2 = convert(n, base)
+    var answer = ""
+    for (i in n2) {
+        answer += c[i]
+    }
+    return answer
+}
 
 /**
  * Средняя
@@ -255,7 +263,15 @@ fun convertToString(n: Int, base: Int): String = TODO()
  * из системы счисления с основанием base в десятичную.
  * Например: digits = (1, 3, 12), base = 14 -> 250
  */
-fun decimal(digits: List<Int>, base: Int): Int = TODO()
+fun decimal(digits: List<Int>, base: Int): Int {
+    var a = 1
+    var answer = 0
+    for (i in digits.reversed()) {
+        answer += i * a
+        a *= base
+    }
+    return answer
+}
 
 /**
  * Сложная
@@ -266,7 +282,14 @@ fun decimal(digits: List<Int>, base: Int): Int = TODO()
  * 10 -> a, 11 -> b, 12 -> c и так далее.
  * Например: str = "13c", base = 14 -> 250
  */
-fun decimalFromString(str: String, base: Int): Int = TODO()
+fun decimalFromString(str: String, base: Int): Int {
+    val c = ('0'..'9') + ('a'..'z')
+    val answer = mutableListOf<Int>()
+    for (i in str) {
+        answer.add(c.indexOf(i))
+    }
+    return decimal(answer, base)
+}
 
 /**
  * Сложная
@@ -276,7 +299,19 @@ fun decimalFromString(str: String, base: Int): Int = TODO()
  * 90 = XC, 100 = C, 400 = CD, 500 = D, 900 = CM, 1000 = M.
  * Например: 23 = XXIII, 44 = XLIV, 100 = C
  */
-fun roman(n: Int): String = TODO()
+fun roman(n: Int): String {
+    val a = listOf(1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1)
+    val r = listOf("M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I")
+    var n2 = n
+    var answer = ""
+    for (i in 0 .. a.size - 1) {
+        for (j in 0..n2 / a[i] - 1) {
+            answer += r[i]
+        }
+        n2 %= a[i]
+    }
+    return answer
+}
 
 /**
  * Очень сложная
